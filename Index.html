@@ -40,7 +40,7 @@ h3{font-family:'Cormorant Garamond','Tiro Bangla',serif;font-weight:600;font-siz
 .item:hover{background:rgba(212,180,131,.08)}.item[data-tea]{border-color:rgba(212,180,131,.5)}
 .heart{background:none;border:0;color:rgba(255,255,255,.22);font-size:1.25rem;cursor:pointer;transition:.25s;flex:none}.heart.on{color:#d6456f;text-shadow:0 0 12px #d6456f}
 .out{display:none;margin-top:1rem;padding:1rem 1.2rem;border-radius:14px;border:1px dashed var(--gold);background:rgba(212,180,131,.06);animation:up .6s}
-.out p{margin:.2rem 0}@keyframes up{from{opacity:0;transform:translateY(10px)}}
+.out p{margin:.2rem 0}@keyframes up{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 .bar{height:4px;border-radius:9px;background:rgba(255,255,255,.1)}.bar i{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,var(--wine),var(--gold));transition:width .6s}
 .cert{padding:1.6rem;text-align:center;border:1px solid var(--gold);border-radius:14px;outline:1px solid var(--line);outline-offset:6px;animation:up .7s}
 .env{position:relative;display:block;border:0;width:min(290px,82vw);height:182px;margin:1.5rem auto;background:linear-gradient(135deg,#2a0f1b,#150810);border:1px solid var(--line);border-radius:10px;cursor:pointer;box-shadow:0 25px 50px #000a;transform:rotate(-2deg);transition:transform .4s}
@@ -202,7 +202,7 @@ let bt,ty;function say(m){clearInterval(ty);clearTimeout(bt);const b=$('#bub'),c
 const ASK=['এজেন্ট রিপোর্টিং: খাদিজার ডায়েরি রেডি। মুনাদী ভেতরে নার্ভাস, বাইরে স্বাভাবিক থাকার অভিনয় করছে।','একটা গোপন কথা: মুনাদী আপনার মেসেজের নোটিফিকেশনের শব্দ আলাদা করে রেখেছে। আমি কিছু বলিনি।','প্রশ্ন: মুনাদীকে ক্ষমা করতে ঠিক কয় কাপ চা লাগে? আমার হিসাবে এক কাপ আর একটা হাসি।','হিন্ট: ওপরের সোনালি K লোগোটায় পাঁচবার ট্যাপ করে দেখবেন 👀','আজ আপনি কোন মুডে, শাড়ি না হুডি?'];
 const QS=['এজেন্টের প্রশ্ন: আজ চা খাওয়া হয়েছে? সত্যি বলবেন।','এজেন্টের প্রশ্ন: আজকের মেজাজ, রোদ না বৃষ্টি?','এজেন্টের প্রশ্ন: ফোনে চার্জ আছে তো? মুনাদী কিন্তু অপেক্ষায়।'];
 let ai=0,qi=0;$('#ask').onclick=()=>say(ASK[ai++%ASK.length]);setInterval(()=>{if(!$('#gate').classList.contains('off'))return;say(QS[qi++%QS.length])},55000);
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('in');if(e.target.dataset.say&&!e.target.dataset.seen){e.target.dataset.seen=1;say(e.target.dataset.say)}}),{threshold:.3});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('in');if(e.target.dataset.say&&!e.target.dataset.seen){e.target.dataset.seen=1;say(e.target.dataset.say)}}),{threshold:.1});
 $$('.rv').forEach(s=>io.observe(s));
 
 /* Rain sound */
@@ -279,4 +279,4 @@ document.addEventListener('click',e=>{const t=e.target;
 document.addEventListener('keydown',e=>{if(e.key=='Escape')shut()});
 </script>
 </body>
-    </html>
+</html>
