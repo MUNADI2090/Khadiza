@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Khadiza’s World | খাদিজার রাজ্য</title>
+<link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Tiro+Bangla:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#08080a;--gold:#d4b483;--gold2:#f3e2b3;--wine:#7a2142;--ivory:#f4ede1;--mute:#a79d8c;--line:rgba(212,180,131,.25);box-sizing:border-box;color-scheme:dark;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--ink);color:var(--ivory);font-family:'Anek Bangla',system-ui,sans-serif;font-weight:300;line-height:1.75;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;background:radial-gradient(520px circle at var(--mx,50%) var(--my,25%),rgba(212,180,131,.09),transparent 60%)}
+#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
+#pg{position:fixed;top:0;left:0;height:2px;width:0;z-index:90;background:linear-gradient(90deg,var(--wine),var(--gold),var(--gold2))}
+header,main,footer{position:relative;z-index:2}
+.gold{background:linear-gradient(100deg,#b8925a,#f3e2b3 45%,#d4b483 70%,#fff3cf);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sf{font-family:'Cormorant Garamond','Tiro Bangla',serif;font-weight:500}
+.eb{font-size:.7rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);text-align:center;margin:0 0 .4rem}
+h2{font-family:'Cormorant Garamond','Tiro Bangla',serif;font-weight:500;font-size:clamp(1.8rem,6vw,2.8rem);line-height:1.25;text-align:center;margin:0 0 .5rem}
+h3{font-family:'Cormorant Garamond','Tiro Bangla',serif;font-weight:600;font-size:1.3rem;margin:0 0 .9rem;color:var(--gold2)}
+.sub{text-align:center;color:var(--mute);font-size:.9rem;margin:0 auto 1.8rem;max-width:34rem}
+.card{background:linear-gradient(150deg,#18181b,#0d0d0f);border:1px solid var(--line);border-radius:18px;padding:1.4rem;transition:transform .25s,box-shadow .4s,border-color .4s}
+.card:hover{border-color:rgba(212,180,131,.55);box-shadow:0 0 40px rgba(212,180,131,.1)}
+.btn{background:linear-gradient(135deg,#b8925a,#f3e2b3 50%,#c9a56a);color:#1a1208;border:0;border-radius:999px;padding:.7rem 1.5rem;font-weight:600;font-size:.9rem;font-family:inherit;cursor:pointer;transition:.25s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(212,180,131,.35)}
+.ghost{background:transparent;color:var(--gold2);border:1px solid var(--line);border-radius:999px;padding:.6rem 1.1rem;font-family:inherit;font-weight:400;font-size:.9rem;cursor:pointer;transition:.25s;text-align:left}
+.ghost:hover{border-color:var(--gold);background:rgba(212,180,131,.1)}
+.rv{opacity:0;transform:translateY(26px);transition:opacity 1s,transform 1s}.rv.in{opacity:1;transform:none}
+.badge{display:inline-block;padding:.4rem 1.1rem;border-radius:999px;font-size:.75rem;letter-spacing:.08em;border:1px solid var(--line);color:var(--gold);background:rgba(212,180,131,.06)}
+@property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
+@keyframes spin{to{--a:360deg}}
+#mono{width:86px;height:86px;margin:0 auto 1.3rem;border-radius:50%;display:grid;place-items:center;font-size:2.5rem;color:var(--gold2);cursor:pointer;user-select:none;border:2px solid transparent;background:linear-gradient(var(--ink),var(--ink)) padding-box,conic-gradient(from var(--a),var(--gold),transparent 40%,var(--wine),var(--gold)) border-box;animation:spin 6s linear infinite}
+.row{display:flex;justify-content:space-between;gap:1rem;padding:.8rem 0;border-bottom:1px solid rgba(212,180,131,.12);font-size:.92rem}
+.row:last-child{border:0}.row b{color:var(--gold);font-weight:400;flex:none;max-width:42%}.row span{text-align:right}
+.red{background:#000;color:transparent;border-radius:3px;padding:0 .35rem;cursor:pointer;transition:.5s;user-select:none;box-shadow:0 0 0 1px rgba(212,180,131,.3)}
+.red.on{background:rgba(212,180,131,.12);color:var(--gold2)}
+.grid{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
+.item{display:flex;justify-content:space-between;align-items:center;gap:.6rem;padding:.7rem .9rem;margin-bottom:.55rem;border-radius:12px;background:rgba(255,255,255,.035);border:1px solid rgba(212,180,131,.12);cursor:pointer;transition:.25s;font-size:.93rem;line-height:1.6}
+.item:hover{background:rgba(212,180,131,.08)}.item[data-tea]{border-color:rgba(212,180,131,.5)}
+.heart{background:none;border:0;color:rgba(255,255,255,.22);font-size:1.25rem;cursor:pointer;transition:.25s;flex:none}.heart.on{color:#d6456f;text-shadow:0 0 12px #d6456f}
+.out{display:none;margin-top:1rem;padding:1rem 1.2rem;border-radius:14px;border:1px dashed var(--gold);background:rgba(212,180,131,.06);animation:up .6s}
+.out p{margin:.2rem 0}@keyframes up{from{opacity:0;transform:translateY(10px)}}
+.bar{height:4px;border-radius:9px;background:rgba(255,255,255,.1)}.bar i{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,var(--wine),var(--gold));transition:width .6s}
+.cert{padding:1.6rem;text-align:center;border:1px solid var(--gold);border-radius:14px;outline:1px solid var(--line);outline-offset:6px;animation:up .7s}
+.env{position:relative;display:block;border:0;width:min(290px,82vw);height:182px;margin:1.5rem auto;background:linear-gradient(135deg,#2a0f1b,#150810);border:1px solid var(--line);border-radius:10px;cursor:pointer;box-shadow:0 25px 50px #000a;transform:rotate(-2deg);transition:transform .4s}
+.env:hover{transform:rotate(0) translateY(-8px) scale(1.04)}
+.env::before{content:"";position:absolute;inset:0;border-radius:10px 10px 0 0;background:linear-gradient(135deg,#3a1526,#1d0b14);clip-path:polygon(0 0,100% 0,50% 58%)}
+.seal{position:absolute;left:50%;top:50%;width:56px;height:56px;margin:-36px 0 0 -28px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#f3e2b3,#a67c3d);display:grid;place-items:center;font-size:24px;color:#2a1608;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(212,180,131,.55)}50%{box-shadow:0 0 0 18px rgba(212,180,131,0)}}
+.modal{position:fixed;inset:0;z-index:80;display:none;align-items:center;justify-content:center;padding:1rem;background:rgba(5,5,7,.82);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}.modal.on{display:flex}
+.box{width:min(480px,100%);max-height:88vh;overflow-y:auto}
+.paper{background:repeating-linear-gradient(#f7efdc 0 31px,#e9dcbc 32px),#f7efdc;color:#3d1b26;border-radius:6px;padding:1.5rem 1.4rem;line-height:2;font-family:'Tiro Bangla',serif;transform-origin:top;animation:unfold .8s}
+.paper p{margin:.4rem 0}@keyframes unfold{from{transform:scaleY(.05);opacity:0}}
+.field{width:100%;padding:.7rem 1rem;margin:.3rem 0 .9rem;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--ivory);font-family:inherit;font-size:1rem}
+.field option{background:#18181b}
+#gate{position:fixed;inset:0;z-index:100;background:var(--ink);display:flex;align-items:center;justify-content:center;padding:1.5rem;transition:opacity .9s,visibility .9s}#gate.off{opacity:0;visibility:hidden}
+.ln{opacity:0;animation:up .7s forwards;margin:.5rem 0}.mono{font-family:ui-monospace,Menlo,monospace;font-size:.85rem;color:var(--gold)}
+#agent{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:70;width:min(310px,calc(100vw - 28px))}
+#bub{background:rgba(16,16,19,.94);border:1px solid var(--line);border-radius:16px 16px 4px 16px;padding:.7rem 1rem;margin-bottom:.6rem;font-size:.85rem;line-height:1.6;opacity:0;transform:translateY(10px);transition:.3s;pointer-events:none;box-shadow:0 10px 40px #000a}#bub.on{opacity:1;transform:none}
+.av{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;font-size:26px;background:#111;border:2px solid var(--gold);box-shadow:0 0 22px rgba(212,180,131,.35);animation:fl 3s ease-in-out infinite;flex:none}
+@keyframes fl{50%{transform:translateY(-6px)}}
+#snd{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));right:12px;z-index:70;display:flex;gap:7px;align-items:center;padding:.45rem .9rem;font-size:.75rem;background:rgba(16,16,19,.8);color:var(--gold2)}
+.sbars{display:flex;gap:2px;align-items:flex-end;height:13px}.sbars i{width:3px;height:4px;background:var(--gold);border-radius:2px}
+#snd.on .sbars i{animation:eq .8s infinite alternate}#snd.on .sbars i:nth-child(2){animation-delay:.2s}#snd.on .sbars i:nth-child(3){animation-delay:.4s}@keyframes eq{to{height:13px}}
+#toast{position:fixed;left:50%;top:calc(64px + env(safe-area-inset-top,0px));z-index:95;transform:translate(-50%,-20px);opacity:0;transition:.4s;padding:.9rem 1.3rem;background:rgba(16,16,19,.97);border:1px solid var(--gold);border-radius:14px;text-align:center;width:min(430px,92vw);pointer-events:none;font-size:.9rem}#toast.on{opacity:1;transform:translate(-50%,0)}
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas><div id="pg"></div>
+
+<div id="gate"><div style="max-width:420px">
+  <p class="mono ln" style="animation-delay:.3s">&gt; Munadi’s Agent চালু হচ্ছে…</p>
+  <p class="mono ln" style="animation-delay:1.3s">&gt; ফাইল পাওয়া গেছে: “Khadiza”</p>
+  <p class="mono ln" style="animation-delay:2.3s">&gt; সিকিউরিটি চেক: আপনি কি আসলেই খাদিজা?</p>
+  <div class="ln" style="animation-delay:3.2s;display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.2rem"><button class="btn" data-gate="1">হ্যাঁ, আমিই</button><button class="ghost" data-gate="0">না, অন্য কেউ</button></div>
+</div></div>
+
+<button id="snd" class="card" aria-label="Rain sound"><span class="sbars"><i></i><i></i><i></i></span>☔ বৃষ্টি</button>
+<div id="toast"></div>
+
+<header style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:5rem 1.2rem 3rem">
+  <div id="mono" class="sf" title="K">K</div>
+  <span class="badge">Classified File: Codename Khadiza &nbsp;|&nbsp; স্পেশাল মিশন</span>
+  <h1 class="sf" style="font-size:clamp(2.4rem,9vw,5.2rem);line-height:1.1;margin:1.4rem 0 .2rem;font-weight:500">Khadiza Akter:<br><span class="gold" style="font-style:italic">The VIP of Munadi’s World</span></h1>
+  <p class="sf" style="font-size:clamp(1.05rem,3.6vw,1.35rem);max-width:30rem;color:var(--ivory);margin:1.2rem 0 .4rem;font-weight:400">যেখানে প্রতিটি পছন্দ, অভিমান আর অনুভূতির জন্য তৈরি হয়েছে আলাদা এক স্বর্গ।</p>
+  <p style="font-size:.78rem;color:var(--mute);letter-spacing:.12em">KHADIZA’S WORLD · CURATED BY MUNADI’S SECRET AGENT</p>
+  <button id="enter" class="btn" style="margin-top:2rem">Enter Sanctuary ✦ ভেতরে আসুন</button>
+</header>
+
+<main style="max-width:1000px;margin:0 auto;padding:0 1rem 10rem;display:grid;gap:6rem">
+  <section class="rv" data-say="এই ফাইলটা আমি নিজের হাতে বানিয়েছি। মুনাদী শুধু চা এনে দিয়েছে, আর বারবার জিজ্ঞেস করেছে 'হয়েছে?'">
+    <p class="eb">Chapter I</p><h2 class="gold">Her File · খাদিজার ফাইল</h2>
+    <p class="sub">কালো বারগুলোতে ট্যাপ করুন। ক্লাসিফাইড তথ্য, তবে আপনার জন্য খোলা।</p>
+    <div class="card" style="max-width:640px;margin:auto">
+      <div class="row"><b>Codename</b><span>Khadiza · Class: VIP</span></div>
+      <div class="row"><b>কণ্ঠস্বর</b><span>মিষ্টি। এজেন্ট ঘুষ খায়নি, সত্যি বলছি।</span></div>
+      <div class="row"><b>সিগনেচার মুভ</b><span>আস্তে করে একটা অভিমান, তারপর পুরো দুনিয়া চুপ</span></div>
+      <div class="row"><b>মুনাদীর বড় দুর্বলতা</b><span><i class="red">আপনার একটা রিপ্লাই</i></span></div>
+      <div class="row"><b>এজেন্টের বেতন</b><span><i class="red">চা আর বকবকের অনুমতি</i></span></div>
+      <div class="row"><b>Threat level</b><span><i class="red">কিউট, মুনাদীর জন্য মারাত্মক</i></span></div>
+    </div>
+  </section>
+
+  <section class="rv" data-say="এবার আপনার পালা। যা যা ভালো লাগে লিখে ফেলুন, আমি সব নোট করছি। মুনাদীকে পরে একটু একটু করে জানাব।">
+    <p class="eb">Chapter II</p><h2 class="gold">The Vault · পছন্দের সিন্দুক</h2>
+    <p class="sub">♥ চাপলে ফেভারিট হবে। নিচের বোতামে নিজের পছন্দ যোগ করুন, সব এই ফোনেই থাকবে।</p>
+    <div id="vault" class="grid"></div>
+    <div class="card" style="margin-top:1.2rem;text-align:center">
+      <h3>🎯 আজকের মিশন</h3>
+      <p style="color:var(--mute);font-size:.88rem;margin:0 0 .8rem">সিন্দুক থেকে এজেন্ট আজকের জন্য একটা প্ল্যান বানিয়ে দেবে। আপনার যোগ করা পছন্দও ধরা হবে।</p>
+      <button class="btn" id="mis">মিশন বের করো</button>
+      <div id="misOut" class="out" style="text-align:left"></div>
+    </div>
+  </section>
+
+  <section class="rv" data-say="শরীর খারাপ হলে ডাক্তার, মন খারাপ হলে আমি। ফি লাগবে না, শুধু মুনাদীকে একটু বকে দেবেন।">
+    <p class="eb">Chapter III</p><h2 class="gold">Mood Pharmacy · মনের ওষুধ</h2>
+    <p class="sub">আজকের মেজাজ বেছে নিন। প্রেসক্রিপশন সঙ্গে সঙ্গে।</p>
+    <div class="card" style="max-width:640px;margin:auto">
+      <div id="moods" style="display:flex;flex-wrap:wrap;gap:.6rem"></div>
+      <p id="rx" class="out" style="line-height:1.9"></p>
+    </div>
+  </section>
+
+  <section class="rv" data-say="জেরা শুরু। সত্যি বলবেন কিন্তু, মুনাদী পাশের ঘরে কান পেতে আছে।">
+    <p class="eb">Chapter IV</p><h2 class="gold">The Interrogation · এজেন্টের জেরা</h2>
+    <p class="sub">চারটা প্রশ্ন, একটা সার্টিফিকেট। ভুল উত্তর বলে কিছু নেই, তবে কিছু উত্তর বেশি মজার।</p>
+    <div id="quiz" class="card" style="max-width:560px;margin:auto"></div>
+  </section>
+
+  <section class="rv" data-say="এই চিঠি নিয়ে মুনাদী তিনবার লিখে তিনবার ছিঁড়েছে। চতুর্থবারেরটা এটা।">
+    <p class="eb">Chapter V</p><h2 class="gold">চিঠি: শুধুমাত্র খাদিজার জন্য</h2>
+    <p class="sub">সোনালি সিলমোহরে ট্যাপ করুন।</p>
+    <button id="env" class="env" aria-label="চিঠি খুলুন"><span class="seal">✦</span></button>
+  </section>
+
+  <section class="rv" style="text-align:center" data-say="রিপোর্ট রেডি। পাঠাবেন তো? নাকি আরেকটু ভাববেন?">
+    <p class="eb">Chapter VI</p><h2 class="gold">Secret Dispatch</h2>
+    <p class="sub">আপনার পছন্দ, মুড আর কুইজের ফল একটা রিপোর্ট হয়ে যাবে। শেয়ার করলে সোজা মুনাদীর কাছে।</p>
+    <button id="send" class="btn">📡 রিপোর্ট পাঠাও</button>
+  </section>
+</main>
+<footer style="text-align:center;padding:0 1rem 7rem;font-size:.78rem;color:var(--mute);letter-spacing:.1em">MUNADI’S AGENT · ভালোবাসা দিয়ে বানানো, একটু বেশি বকবক সহ</footer>
+
+<div id="agent">
+  <div id="bub"></div>
+  <div style="display:flex;align-items:center;gap:.6rem;justify-content:flex-end">
+    <button id="ask" class="ghost" style="background:rgba(16,16,19,.9);font-size:.78rem;padding:.5rem .9rem">Ask Agent a Question</button>
+    <div class="av">🕶️</div>
+  </div>
+</div>
+
+<div class="modal" id="mAdd"><div class="card box">
+  <h3>✦ নতুন পছন্দ যোগ করুন</h3>
+  <label style="font-size:.8rem;color:var(--mute)">কোথায় যোগ হবে</label>
+  <select id="mc" class="field"><option value="style">Add New Outfit / নতুন পছন্দের ড্রেস</option><option value="place">প্রিয় ঠিকানা</option><option value="mind">মনের খেয়াল</option></select>
+  <label style="font-size:.8rem;color:var(--mute)">আপনার পছন্দ</label>
+  <input id="mt" class="field" maxlength="90" placeholder="যেমন: লাল পাড়ের সাদা শাড়ি">
+  <div style="display:flex;gap:.6rem;justify-content:flex-end"><button class="ghost" data-close>থাক</button><button id="mSave" class="btn">যোগ করুন</button></div>
+</div></div>
+
+<div class="modal" id="mLetter"><div class="box">
+  <div class="paper">
+    <p style="font-weight:700;font-size:1.15rem">খাদিজা,</p>
+    <p>এজেন্টকে বলেছিলাম চিঠিটা ও-ই লিখুক। ও বলল, “ভাই, এসব নিজের হাতে লিখতে হয়।” তাই এই লেখা আমারই।</p>
+    <p>তোমার গলার স্বরটা শুনলে মনে হয় কেউ খুব আস্তে করে বৃষ্টি নামিয়ে দিল। কথায় যে নম্রতা আর ভদ্রতা তোমার, ওটা শেখা যায় না, ভেতর থেকে আসে। আর শাড়িতে তুমি কেমন লাগো, সেটা এজেন্টও স্বীকার করে। ও কিন্তু সহজে কারো প্রশংসা করে না।</p>
+    <p style="font-style:italic;padding-left:.8rem;border-left:3px solid #a67c3d">বৃষ্টি এলে তোমার কথা মনে পড়ে,<br>চা জুড়িয়ে গেলেও খেয়াল থাকে না।<br>অভিমান কোরো, শুধু বলে দিও,<br>কোন চায়ে মিটবে সেই অভিমানের দাম।</p>
+    <p style="text-align:right;font-weight:700">ইতি, তোমার গুণমুগ্ধ মুনাদী<br><small style="font-weight:400">(তত্ত্বাবধানে: বিশ্বস্ত এজেন্ট)</small></p>
+  </div>
+  <div style="text-align:center;margin-top:.8rem"><button class="ghost" data-close>বন্ধ করুন ✕</button></div>
+</div></div>
+
+<script>
+const WA=''; // Munadi-র নম্বর (যেমন 8801XXXXXXXXX) দিলে রিপোর্ট সরাসরি ওর WhatsApp-এ যাবে
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const LS={g(k,d){try{const v=localStorage.getItem('kw2_'+k);return v?JSON.parse(v):d}catch(e){return d}},s(k,v){try{localStorage.setItem('kw2_'+k,JSON.stringify(v))}catch(e){}}};
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const R=(a,b)=>a+Math.random()*(b-a),pick=a=>a[Math.random()*a.length|0];
+
+/* Canvas: gold dust, shooting stars, rain, confetti */
+const cv=$('#bg'),cx=cv.getContext('2d');let W,H,P=[],D=[],RD=[],S=null,rain=false,st=0;
+function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight}addEventListener('resize',rs);rs();
+for(let i=0;i<80;i++)D.push({x:R(0,W),y:R(0,H),s:R(.6,2.2),v:R(.05,.3),ph:R(0,6)});
+for(let i=0;i<90;i++)RD.push({x:R(0,W),y:R(0,H),l:R(12,26),v:R(10,17)});
+function confetti(){const c=['#d4b483','#f3e2b3','#ffffff','#b0325f'];for(let i=0;i<150;i++)P.push({x:innerWidth/2,y:innerHeight/2,vx:R(-8,8),vy:R(-14,-3),s:R(5,9),life:140,c:c[i%4]})}
+function loop(){cx.clearRect(0,0,W,H);
+ D.forEach(d=>{d.ph+=.02;d.y-=d.v;if(d.y<-4){d.y=H+4;d.x=R(0,W)}cx.fillStyle='rgba(243,226,179,'+(.25+Math.sin(d.ph)*.2)+')';cx.beginPath();cx.arc(d.x+Math.sin(d.ph)*6,d.y,d.s,0,6.28);cx.fill()});
+ if(rain){cx.strokeStyle='rgba(212,180,131,.2)';cx.beginPath();RD.forEach(r=>{r.y+=r.v;r.x-=2;if(r.y>H){r.y=-30;r.x=R(0,W+80)}cx.moveTo(r.x,r.y);cx.lineTo(r.x+3,r.y-r.l)});cx.stroke()}
+ if(++st%420==0)S={x:R(W*.4,W),y:R(0,H*.35),f:0};
+ if(S){S.x-=14;S.y+=7;S.f++;const g=cx.createLinearGradient(S.x,S.y,S.x+90,S.y-45);g.addColorStop(0,'rgba(255,243,207,.9)');g.addColorStop(1,'rgba(255,243,207,0)');cx.strokeStyle=g;cx.lineWidth=2;cx.beginPath();cx.moveTo(S.x,S.y);cx.lineTo(S.x+90,S.y-45);cx.stroke();cx.lineWidth=1;if(S.f>50)S=null}
+ P=P.filter(o=>{o.x+=o.vx;o.y+=o.vy;o.vy+=.35;o.vx*=.99;o.life--;cx.globalAlpha=Math.max(o.life/140,0);cx.fillStyle=o.c;cx.fillRect(o.x,o.y,o.s,o.s*.6);cx.globalAlpha=1;return o.life>0});
+ requestAnimationFrame(loop)}loop();
+
+/* Spotlight, scroll progress, reveal */
+addEventListener('pointermove',e=>{if(e.pointerType=='touch')return;const r=document.documentElement.style;r.setProperty('--mx',e.clientX+'px');r.setProperty('--my',e.clientY+'px')});
+addEventListener('scroll',()=>{$('#pg').style.width=(scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight)*100)+'%'},{passive:true});
+
+/* Agent (typewriter speech) */
+let bt,ty;function say(m){clearInterval(ty);clearTimeout(bt);const b=$('#bub'),c=[...m];b.classList.add('on');b.textContent='';let i=0;
+ ty=setInterval(()=>{b.textContent=c.slice(0,++i).join('');if(i>=c.length){clearInterval(ty);bt=setTimeout(()=>b.classList.remove('on'),7000)}},24)}
+const ASK=['এজেন্ট রিপোর্টিং: খাদিজার ডায়েরি রেডি। মুনাদী ভেতরে নার্ভাস, বাইরে স্বাভাবিক থাকার অভিনয় করছে।','একটা গোপন কথা: মুনাদী আপনার মেসেজের নোটিফিকেশনের শব্দ আলাদা করে রেখেছে। আমি কিছু বলিনি।','প্রশ্ন: মুনাদীকে ক্ষমা করতে ঠিক কয় কাপ চা লাগে? আমার হিসাবে এক কাপ আর একটা হাসি।','হিন্ট: ওপরের সোনালি K লোগোটায় পাঁচবার ট্যাপ করে দেখবেন 👀','আজ আপনি কোন মুডে, শাড়ি না হুডি?'];
+const QS=['এজেন্টের প্রশ্ন: আজ চা খাওয়া হয়েছে? সত্যি বলবেন।','এজেন্টের প্রশ্ন: আজকের মেজাজ, রোদ না বৃষ্টি?','এজেন্টের প্রশ্ন: ফোনে চার্জ আছে তো? মুনাদী কিন্তু অপেক্ষায়।'];
+let ai=0,qi=0;$('#ask').onclick=()=>say(ASK[ai++%ASK.length]);setInterval(()=>{if(!$('#gate').classList.contains('off'))return;say(QS[qi++%QS.length])},55000);
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('in');if(e.target.dataset.say&&!e.target.dataset.seen){e.target.dataset.seen=1;say(e.target.dataset.say)}}),{threshold:.3});
+$$('.rv').forEach(s=>io.observe(s));
+
+/* Rain sound */
+let ac,sg,on=false;
+$('#snd').onclick=()=>{try{
+ if(!ac){ac=new (window.AudioContext||window.webkitAudioContext)();const b=ac.createBuffer(1,ac.sampleRate*3,ac.sampleRate),d=b.getChannelData(0);let l=0;
+  for(let i=0;i<d.length;i++){const w=Math.random()*2-1;l=(l+.02*w)/1.02;d[i]=l*3.5+w*.04}
+  const s=ac.createBufferSource();s.buffer=b;s.loop=true;const f=ac.createBiquadFilter();f.type='lowpass';f.frequency.value=1400;
+  sg=ac.createGain();sg.gain.value=0;s.connect(f);f.connect(sg);sg.connect(ac.destination);s.start()}
+ on=!on;rain=on;if(ac.state=='suspended')ac.resume();sg.gain.setTargetAtTime(on?.35:0,ac.currentTime,.3);
+ $('#snd').classList.toggle('on',on);say(on?'বৃষ্টি নামিয়ে দিলাম ☔ এবার চা-টা রেডি রাখুন।':'বৃষ্টি থামল। রোদ উঠলে বলবেন।')}catch(e){say('এই ব্রাউজারে সাউন্ড চালু হলো না, দুঃখিত 😅')}};
+
+/* Gate */
+function enter(who){$('#gate').classList.add('off');LS.s('in',1);setTimeout(()=>say(who?'স্বাগতম, মুহতারমা! আপনার জন্য সব সাজিয়ে রেখেছি। মুনাদী বলেছে ঝামেলা না করতে। আমি কখনো ঝামেলা করি না, প্রায়।':'ও, তাহলে আপনি অন্য কেউ! ঠিক আছে ঢুকুন, তবে খাদিজার জিনিসে হাত দেবেন না 😏'),700);if(who)confetti()}
+if(LS.g('in',0)){$('#gate').classList.add('off');setTimeout(()=>say('ফিরে এসেছেন! 👀 মুনাদী তো বাজি ধরেছিল আপনি আসবেন না।'),1500)}
+$('#enter').onclick=()=>$('main').scrollIntoView({behavior:'smooth'});
+let mt=0;$('#mono').onclick=()=>{if(++mt>=5){mt=0;confetti();say('সিক্রেট কোড ধরা পড়ল! 🎉 এজেন্ট ঘোষণা করছে: আজ মুনাদীর বিল দেওয়ার দিন।')}};
+
+/* Vault */
+const CATS=[
+ {k:'style',i:'👗',h:'The Wardrobe Vault · শাড়ির সাজ ও স্টাইল',b:'Add New Outfit / নতুন পছন্দের ড্রেস',d:['কালো জমিনের জামদানি শাড়ি (The Ultimate Elegance)','Cozy Oversized Hoodie & Sneaker Vibe','স্নিগ্ধ সাদা কুর্তি উইথ এক চিলতে টিপ']},
+ {k:'place',i:'🌧️',h:'Kothay Thakte Bhalo Lage · স্বপ্নের ঠিকানা',b:'নতুন ঠিকানা যোগ করুন',d:['ছনের চালের টং দোকান, ঝুম বৃষ্টি আর গরম চা (যেখানে মুনাদী বিল ফাঁকি দেবে!)','Quiet Aesthetic Rooftop under Twilight Sky','বৃষ্টিভেজা বারান্দা উইথ রবীন্দ্রসংগীত']},
+ {k:'mind',i:'🌙',h:'Moner Kheyal · কী করতে মন চায়',b:'মনের খেয়াল যোগ করুন',d:['মধ্যরাতে উদ্দেশ্যহীন লং ড্রাইভ','রহস্য আর থ্রিলার বই বা মুভিতে ডুব দেওয়া','প্রিয় মানুষের সাথে অন্তহীন গল্প']}];
+let my=LS.g('my',[]),fav=LS.g('fav',[]),mood=LS.g('mood','');
+const items=k=>[...CATS.find(c=>c.k==k).d,...my.filter(m=>m.k==k).map(m=>m.t)];
+const card=(t,tea)=>`<div class="item" ${tea?'data-tea':''}><span>${esc(t)}</span><button class="heart ${fav.includes(t)?'on':''}" data-fav="${esc(t)}" aria-label="Favorite">♥</button></div>`;
+function draw(){$('#vault').innerHTML=CATS.map(c=>`<div class="card"><h3>${c.i} ${c.h}</h3>${items(c.k).map(t=>card(t,t.includes('টং'))).join('')}<button class="ghost" style="margin-top:.4rem;font-size:.8rem" data-add="${c.k}">＋ ${c.b}</button></div>`).join('')}
+draw();
+$('#mis').onclick=()=>{const o=$('#misOut');o.style.display='block';o.innerHTML=`<p class="eb" style="text-align:left">Mission Briefing</p><p>👗 ${esc(pick(items('style')))}</p><p>📍 ${esc(pick(items('place')))}</p><p>🌙 ${esc(pick(items('mind')))}</p>`;say('মিশন অ্যাসাইনড। আপত্তি থাকলে মুনাদীকে জানান। ও কিছুই করতে পারবে না 😌')};
+
+/* Moods */
+const MD=[['হুটহাট রাগ 😤','প্রেসক্রিপশন: এক কাপ লেবু চা, দুই প্লেট ফুচকা, আর মুনাদীর তরফ থেকে তিনটা বিনীত স্যরি। দরকার হলে চার নম্বরটা এজেন্ট নিজের পকেট থেকে দেবে।'],
+['খুব সুইট মুড 🌸','প্রেসক্রিপশন: এক টুকরো কেক, অনেকটা গল্প, আর একটা হাসি যেটা মুনাদী বহুদিন মনে রাখবে। সাইড ইফেক্ট: এজেন্ট খুশিতে ভুল ডায়ালগ বলে ফেলতে পারে।'],
+['বোরিং টেক্সটিং ক্লান্তি 🙄','প্রেসক্রিপশন: একটা মজার মিম, একটা ভয়েস মেসেজ, আর মুনাদীর তিন লাইনের জায়গায় তিরিশ লাইনের রিপ্লাই। না এলে আমাকে জানাবেন, ধরে আনছি।'],
+['একটু নিরবতা ☕','প্রেসক্রিপশন: এক কাপ চা, বৃষ্টির শব্দ, আর কোনো প্রশ্ন না। এজেন্ট এখন মিউট। (আমি কিন্তু আশেপাশেই আছি।)']];
+$('#moods').innerHTML=MD.map((m,i)=>`<button class="ghost" data-mood="${i}">${m[0]}</button>`).join('');
+
+/* Quiz */
+const QZ=[['Texting-এ সবচেয়ে ক্ষতিকর রিপ্লাই কোনটা?',['Hm','Ohh','Kichui na','দেড় ঘণ্টা পর সিন করা'],'হুম, নোট করে নিলাম। মুনাদী এখন কপাল চুলকাচ্ছে 😅'],
+['টং দোকানে ঝুম বৃষ্টির মধ্যে চায়ের বিল কে দেবে?',['মুনাদী অবশ্যই','খাদিজা, একরাশ “হায়রে!” বলে','দোকানিকে ফাঁকি দিয়ে দৌড়!'],'উত্তর রেকর্ড হলো। মুনাদীর ওয়ালেট এখন কাঁপছে 💸'],
+['খাদিজার গলার সুর এত মিষ্টি কেন?',['প্রাকৃতিক ম্যাজিক','কোচিংয়ের সবাই এতেই মুগ্ধ','এজেন্ট একটু বাড়িয়ে বলছে 😜'],'আমি একমত। আপত্তি থাকলে লিখিত দিন, গ্রহণ করা হবে না 🎶'],
+['অভিমান ভাঙানোর সেরা ফর্মুলা কী?',['এক কাপ কড়া চা','সুন্দর একটা কবিতা','সব দোষ নিজের ঘাড়ে নেওয়া'],'ফর্মুলা সেভ হলো। মুনাদীকে কপি পাঠাচ্ছি 📡']];
+let qa=LS.g('qa',[]);
+function quiz(){const q=$('#quiz'),n=qa.length;
+ if(n>=QZ.length){q.innerHTML=`<div class="cert"><p class="eb">Stage 5 / 5 · Final Result</p><p class="sf" style="font-size:.9rem;letter-spacing:.3em;color:var(--gold)">CERTIFICATE OF AGENT</p><p class="sf" style="font-size:1.6rem;margin:.6rem 0">খাদিজা আক্তার</p><p class="sf gold" style="font-size:1.55rem;line-height:1.4;font-style:italic">Agent Rating: 100% Certified Queen of Hearts! 👑💖</p><button class="ghost" style="margin-top:1rem;font-size:.8rem" id="qr">আবার খেলুন ↻</button></div>`;return}
+ q.innerHTML=`<p class="eb" style="text-align:left">Stage ${n+1} / 5</p><div class="bar"><i style="width:${n/QZ.length*100}%"></i></div><h3 style="margin:1.2rem 0;line-height:1.6">${QZ[n][0]}</h3><div style="display:grid;gap:.6rem">${QZ[n][1].map((x,i)=>`<button class="ghost" style="border-radius:14px" data-q="${i}">${x}</button>`).join('')}</div>`}
+quiz();
+
+/* Modals, toast, report */
+const open=id=>$(id).classList.add('on'),shut=()=>$$('.modal').forEach(m=>m.classList.remove('on'));
+let tt;function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),5000)}
+function save(){const t=$('#mt').value.trim();if(!t)return $('#mt').focus();my.push({k:$('#mc').value,t});LS.s('my',my);draw();$('#mt').value='';shut();say('মুহতারমার পছন্দ তো দুর্দান্ত! নোটেড ফর মুনাদীর প্রায়োরিটি মেমোরি ✨')}
+$('#mSave').onclick=save;$('#mt').addEventListener('keydown',e=>{if(e.key=='Enter')save()});
+$('#env').onclick=()=>{open('#mLetter');say('চিঠি খুলে গেছে! মুনাদী এখন নার্ভাস হয়ে পানি খাচ্ছে 💧')};
+function report(){return `🕶️ Munadi’s Agent · Khadiza’s Report\n\n♥ ফেভারিট: ${fav.join(' | ')||'এখনো কিছু না'}\n✦ নতুন যোগ: ${my.map(m=>m.t).join(' | ')||'এখনো কিছু না'}\n💊 শেষ মুড: ${mood||'—'}\n👑 কুইজ: ${qa.length>=QZ.length?'শেষ, Queen of Hearts!':'এখনো বাকি'}`}
+$('#send').onclick=async()=>{const text=report();LS.s('sent',Date.now());
+ try{if(navigator.share){await navigator.share({title:'Khadiza’s Report',text});toast('রিপোর্ট চলে গেছে! মুনাদী আজ রাতে আর ঘুমাবে না 😄')}else throw 0}
+ catch(e){if(e&&e.name=='AbortError')return;try{await navigator.clipboard.writeText(text)}catch(_){}window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(text),'_blank');toast('রিপোর্ট কপি হয়েছে। WhatsApp-এ মুনাদীকে পেস্ট করে দিন 📡')}
+ confetti()};
+document.addEventListener('click',e=>{const t=e.target;
+ if(t.classList.contains('modal')||t.closest('[data-close]'))return shut();
+ const g=t.closest('[data-gate]');if(g)return enter(g.dataset.gate=='1');
+ const rd=t.closest('.red');if(rd){rd.classList.toggle('on');return say('ক্লাসিফাইড তথ্য ফাঁস! এজেন্ট এখন চাকরি হারানোর ভয়ে 😬')}
+ const f=t.closest('[data-fav]');
+ if(f){const v=f.dataset.fav;fav=fav.includes(v)?fav.filter(x=>x!=v):[...fav,v];LS.s('fav',fav);draw();return say(fav.includes(v)?'ফেভারিটে যোগ হলো। নোট করে রাখলাম 📝':'ঠিক আছে, সরিয়ে দিলাম।')}
+ const a=t.closest('[data-add]');if(a){$('#mc').value=a.dataset.add;open('#mAdd');return setTimeout(()=>$('#mt').focus(),100)}
+ if(t.closest('[data-tea]'))return say('মুহতারমা, চায়ের বিল কিন্তু আপনার! মুনাদী ওয়ালেট বাসায় ফেলে এসেছে, আমি নিজে দেখেছি, সাক্ষী আছি 😂');
+ const m=t.closest('[data-mood]');
+ if(m){const x=MD[m.dataset.mood];mood=x[0];LS.s('mood',mood);const p=$('#rx');p.style.display='block';p.textContent='℞ '+x[1];return say('ডাক্তার এজেন্ট প্রেসক্রিপশন লিখছে… 🩺')}
+ const q=t.closest('[data-q]');
+ if(q){const n=qa.length;qa.push(+q.dataset.q);LS.s('qa',qa);quiz();if(qa.length>=QZ.length){confetti();say('Agent Rating: 100% Certified Queen of Hearts! 👑💖')}else say(QZ[n][2]);return}
+ if(t.id=='qr'){qa=[];LS.s('qa',qa);quiz();say('নতুন রাউন্ড! এবার একটু সত্যি বলবেন 😜')}
+});
+document.addEventListener('keydown',e=>{if(e.key=='Escape')shut()});
+</script>
+</body>
+    </html>
